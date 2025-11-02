@@ -78,7 +78,7 @@
     line-height: 1.6;
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
     position: relative;
-    animation: flicker 0.15s infinite, textGlow 3s ease-in-out infinite;
+    animation: flicker 3s infinite, textGlow 3s ease-in-out infinite;
 }
 
 .terminal-body::before {
@@ -294,14 +294,29 @@
 }
 
 @keyframes flicker {
-    0% {
-        opacity: 0.97;
-    }
-    50% {
+    0%, 100% {
         opacity: 1;
     }
-    100% {
-        opacity: 0.97;
+    2% {
+        opacity: 0.85;
+    }
+    4% {
+        opacity: 1;
+    }
+    19% {
+        opacity: 0.92;
+    }
+    21% {
+        opacity: 1;
+    }
+    23% {
+        opacity: 0.88;
+    }
+    80% {
+        opacity: 0.95;
+    }
+    83% {
+        opacity: 1;
     }
 }
 
