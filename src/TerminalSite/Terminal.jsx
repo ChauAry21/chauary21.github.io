@@ -1,0 +1,122 @@
+import React, {useState, useEffect, useRef} from "react";
+import {executeCommand} from "./Commands";
+import "./Terminal.css";
+
+function Terminal() {
+    const [input, setInput] = useState("");
+    const [history, setHistory] = useState([
+        {type: "output", content: "Im Aryan Chauhan! Welcome to my website! Please type 'help' to see terminal commands!"},
+        {type: "output", content: ""}
+    ]);
+
+    const [commandHistory, setCommandHistory] = useState([]);
+    const [historyIdx, setHistoryIdx] = useState(-1);
+    const inputRef = useRef(null);
+    const terminalRef = useRef(null);
+
+    useEffect(() => {
+            if (terminalRef.current) {
+                terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+            }
+        },
+        [history]);
+
+    const handleInputSubmit = (e) => {
+        e.preventDefault();
+
+        if (!input.trim()) return;
+
+        const historyNew = [
+            ...history,
+            {type: "command", content: input}
+        ];
+        const output = executeCommand(input.trim().toLowerCase());
+
+        if (output === 'CLEAR_TERMINAL') {
+            setHistory([
+                {type: "output", content: "Im Aryan Chauhan! Welcome to my website! Please type 'help' to see terminal commands!"},
+                {type: "output", content: ""}
+            ]);
+            setInput("");
+            return;
+        }
+
+        historyNew.push({type: "output", content: output});
+
+        setHistory(historyNew);
+        setCommandHistory([...commandHistory, input]);
+        setHistoryIdx(-1);
+        setInput("");
+    };
+
+    const keyDownHandler = (e) => {
+        if (e.key === "ArrowUp") {
+            e.preventDefault();
+            if (commandHistory.length > 0) {
+                const newIdx = historyIdx === -1 ? commandHistory.length - 1 : Math.max(0, historyIdx - 1);
+
+                setHistoryIdx(newIdx);
+                setInput(commandHistory[newIdx]);
+            }
+        } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            if (historyIdx !== -1) {
+                const newIdx = historyIdx + 1;
+                if (newIdx >= commandHistory.length) {
+                    setHistoryIdx(-1);
+                    setInput("");
+                } else {
+                    setHistoryIdx(newIdx);
+                    setInput(commandHistory[newIdx]);
+                }
+            }
+        }
+    };
+
+    const inputFocusHandler = () => {
+        inputRef.current?.focus();
+    };
+
+    return (
+        <div className="terminal-container" onClick={inputFocusHandler}>
+            <div className="terminal-header">
+                <div className="terminal-buttons">
+                    <span className="btn close"></span>
+                    <span className="btn minimize"></span>
+                    <span className="btn maximize"></span>
+                </div>
+                <div className="terminal-title">aryan@dotcom:~</div>
+            </div>
+
+            <div className="terminal-body" ref={terminalRef}>
+                {history.map((item, index) => (
+                    <div key={index} className={`terminal-line ${item.type}`}>
+                        {item.type === 'command' ? (
+                            <div>
+                                <span className="prompt">recruiter@company:~$</span> {item.content}
+                            </div>
+                        ) : (
+                            <div dangerouslySetInnerHTML={{ __html: item.content }} />
+                        )}
+                    </div>
+                ))}
+
+                <form onSubmit={handleInputSubmit} className="terminal-input-line">
+                    <span className="prompt">recruiter@company:~$</span>
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        value={input}s
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={keyDownHandler}
+                        className="terminal-input"
+                        autoFocus
+                        spellCheck="false"
+                    />
+                </form>
+            </div>
+        </div>
+    );
+}
+
+export default Terminal;

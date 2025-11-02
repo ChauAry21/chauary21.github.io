@@ -1,0 +1,288 @@
+.terminal-container {
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    font-family: 'Courier New', 'Consolas', monospace;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #00ff00;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn.close {
+    background: #ff5f56;
+}
+
+.btn.close:hover {
+    background: #ff3b30;
+    cursor: pointer;
+}
+
+.btn.minimize {
+    background: #ffbd2e;
+}
+
+.btn.minimize:hover {
+    background: #ffaa00;
+    cursor: pointer;
+}
+
+.btn.maximize {
+    background: #27c93f;
+}
+
+.btn.maximize:hover {
+    background: #00d600;
+    cursor: pointer;
+}
+
+.terminal-title {
+    color: #00ff00;
+    font-size: 13px;
+    flex: 1;
+    text-align: center;
+    font-weight: 500;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #000000;
+    color: #00ff00;
+    font-size: 14px;
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 5px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+.terminal-line {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.terminal-line.command {
+    color: #00ff00;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-line.output {
+    color: #00ff00;
+    margin-left: 0;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: bold;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 14px;
+    outline: none;
+    caret-color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.terminal-input::selection {
+    background: #00ff00;
+    color: #000000;
+}
+
+.command-output {
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.command-output h3 {
+    color: #00ff00;
+    margin-bottom: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.command-output p {
+    margin: 8px 0;
+    color: #00ff00;
+    line-height: 1.6;
+}
+
+.command-output ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.command-output ul li {
+    padding: 6px 0;
+    color: #00ff00;
+}
+
+.command-output ul li::before {
+    content: "▸ ";
+    color: #00ff00;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.command-output strong {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.command-output em {
+    color: #00cc00;
+    font-style: italic;
+}
+
+.cmd {
+    color: #000000;
+    font-weight: bold;
+    background: #00ff00;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.command-output a {
+    color: #00ff00;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.command-output a:hover {
+    color: #00cc00;
+    text-decoration: none;
+}
+
+.project {
+    background: #001a00;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #00ff00;
+}
+
+.project p {
+    margin: 5px 0;
+}
+
+.project strong {
+    color: #00ff00;
+    font-size: 16px;
+}
+
+.experience-item {
+    background: #001a00;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #00ff00;
+}
+
+.experience-item ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.experience-item ul li {
+    list-style: disc;
+    color: #00ff00;
+    margin: 5px 0;
+}
+
+/* Error Styling */
+.error {
+    color: #00ff00 !important;
+}
+
+.error p {
+    color: #00ff00 !important;
+}
+
+/* Animation for cursor blink */
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.terminal-input::after {
+    content: '';
+    animation: blink 1s infinite;
+}
+
+/* CRT Screen effect */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.97;
+    }
+}
+
+.terminal-body {
+    animation: flicker 0.15s infinite;
+}
