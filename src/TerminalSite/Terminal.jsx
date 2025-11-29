@@ -3,10 +3,13 @@ import {executeCommand} from "./Commands";
 import "./Terminal.css";
 
 function Terminal() {
+    const initialHelpOutput = executeCommand('help');
+
     const [input, setInput] = useState("");
     const [history, setHistory] = useState([
-        {type: "output", content: "Im Aryan Chauhan! Welcome to my website! Please type 'help' to see terminal commands!"},
-        {type: "output", content: ""}
+        {type: "output", content: "Im Aryan Chauhan, Welcome to my website!"},
+        {type: "output", content: initialHelpOutput},
+        {type: "output", content: ""},
     ]);
 
     const [commandHistory, setCommandHistory] = useState([]);
@@ -26,22 +29,23 @@ function Terminal() {
 
         if (!input.trim()) return;
 
-        const historyNew = [
-            ...history,
-            {type: "command", content: input}
-        ];
         const output = executeCommand(input.trim().toLowerCase());
 
         if (output === 'CLEAR_TERMINAL') {
             setHistory([
-                {type: "output", content: "Im Aryan Chauhan! Welcome to my website! Please type 'help' to see terminal commands!"},
-                {type: "output", content: ""}
+                {type: "output", content: "Im Aryan Chauhan! Welcome to my website!"},
+                {type: "output", content: initialHelpOutput},
+                {type: "output", content: ""},
             ]);
             setInput("");
             return;
         }
 
-        historyNew.push({type: "output", content: output});
+        const historyNew = [
+            ...history,
+            {type: "command", content: input},
+            {type: "output", content: output}
+        ];
 
         setHistory(historyNew);
         setCommandHistory([...commandHistory, input]);
@@ -106,7 +110,7 @@ function Terminal() {
                     <input
                         ref={inputRef}
                         type="text"
-                        value={input}s
+                        value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={keyDownHandler}
                         className="terminal-input"
