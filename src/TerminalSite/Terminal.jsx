@@ -5,9 +5,20 @@ import "./Terminal.css";
 function Terminal() {
     const initialHelpOutput = executeCommand('help');
 
+    const welcomeBanner = `
+    <div class="welcome-banner">
+      <pre class="ascii-header">╔══════════════════════════════════════════════════════════╗
+║         ARYAN CHAUHAN  ·  Software Engineer              ║
+║     Backend  ·  Automation  ·  Security  ·  AI/ML        ║
+╚══════════════════════════════════════════════════════════╝</pre>
+      <p style="margin: 10px 0 4px;">BS Computer Science (CWU 2025) · AI Engineering @ Flatiron School</p>
+      <p style="margin: 4px 0;">Type <span class="cmd">projects</span> to see my work &nbsp;|&nbsp; Type <span class="cmd">resume</span> to download my resume</p>
+    </div>
+  `;
+
     const [input, setInput] = useState("");
     const [history, setHistory] = useState([
-        {type: "output", content: "Im Aryan Chauhan, Welcome to my website!"},
+        {type: "output", content: welcomeBanner},
         {type: "output", content: initialHelpOutput},
         {type: "output", content: ""},
     ]);
@@ -33,7 +44,7 @@ function Terminal() {
 
         if (output === 'CLEAR_TERMINAL') {
             setHistory([
-                {type: "output", content: "Im Aryan Chauhan! Welcome to my website!"},
+                {type: "output", content: welcomeBanner},
                 {type: "output", content: initialHelpOutput},
                 {type: "output", content: ""},
             ]);
@@ -89,7 +100,15 @@ function Terminal() {
                     <span className="btn minimize"></span>
                     <span className="btn maximize"></span>
                 </div>
-                <div className="terminal-title">aryan@dotcom:~</div>
+                <div className="terminal-title">aryan@portfolio:~ — Software Engineer · Automation · Security</div>
+                <a
+                    href="/Aryan_Chauhan_Resume.pdf"
+                    download
+                    className="resume-download-btn"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    ⬇ Resume
+                </a>
             </div>
 
             <div className="terminal-body" ref={terminalRef}>

@@ -330,3 +330,137 @@
                 0 0 12px rgba(0, 255, 0, 0.5);
     }
 }
+
+.resume-download-btn {
+    background: #00ff00;
+    color: #000000;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s, box-shadow 0.15s;
+    box-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
+}
+
+.resume-download-btn:hover {
+    background: #00cc00;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+}
+
+/* Welcome banner headline */
+.ascii-header {
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #00ff00;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+    margin: 0 0 6px;
+    white-space: pre;
+}
+
+.welcome-banner p {
+    color: #00cc00;
+    font-size: 13px;
+}
+
+.project-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.badge {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.badge.automation {
+    background: #002a4a;
+    color: #00cfff;
+    border: 1px solid #00cfff;
+}
+
+.badge.security {
+    background: #2a0000;
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+}
+
+.badge.python {
+    background: #1a1a00;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+}
+
+.badge.research {
+    background: #001a00;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.info-card {
+    background: #001a00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 14px 16px;
+    margin: 12px 0;
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.card-icon {
+    color: #00ff00;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    opacity: 0.75;
+    flex-shrink: 0;
+    padding-top: 1px;
+    letter-spacing: -2px;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 15px;
+    color: #00ff00;
+    margin: 0 0 3px !important;
+}
+
+.card-subtitle {
+    color: #00cc00;
+    font-size: 13px;
+    margin: 0 0 3px !important;
+}
+
+.card-date {
+    color: #007700;
+    font-size: 12px;
+    margin: 0 !important;
+}
+
+.card-desc {
+    color: #00cc00;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 4px 0 0 !important;
+}
