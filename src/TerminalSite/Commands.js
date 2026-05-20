@@ -83,7 +83,18 @@ const commands = {
 
       <div class="project">
         <div class="project-title-row">
-          <strong>1. Jobright Job Scraper</strong>
+          <strong>1. Nit - Code Review Agent</strong>
+          <span class="badge agent">Agent</span>
+          <span class="badge python">Java</span>
+        </div>
+        <p>Local agent built from the ground up using Java and Spring Boot running off Ollama. Nit can run code reviews on local repositories, point out key files, security vulnerabilities and even generate test cases written directly into the project following the conventions of the codebase.</p>
+        <p><em>Tech Stack:</em> Java, Ollama, Spring Boot, HTML, CSS</p>
+        <p>🔗 <a href="https://github.com/ChauAry21/nit-agent" target="_blank">github.com/ChauAry21/nit-agent</a></p>
+      </div>
+
+      <div class="project">
+        <div class="project-title-row">
+          <strong>2. Jobright Job Scraper</strong>
           <span class="badge automation">Automation</span>
           <span class="badge python">Python</span>
         </div>
@@ -94,7 +105,7 @@ const commands = {
 
       <div class="project">
         <div class="project-title-row">
-          <strong>2. Cloud Graph Validator</strong>
+          <strong>3. Cloud Graph Validator</strong>
           <span class="badge security">Security</span>
         </div>
         <p>Proof of concept for work at CyberDefense.AI. Validates graph database integrity by comparing cloud API sources against Memgraph storage using checksum-based reconciliation to detect missing nodes/edges and inconsistent state.</p>
@@ -104,7 +115,7 @@ const commands = {
 
       <div class="project">
         <div class="project-title-row">
-          <strong>3. Loyalty App Backend</strong>
+          <strong>4. Loyalty App Backend</strong>
           <span class="badge research">Private</span>
         </div>
         <p>Backend service with REST endpoints for businesses, locations, customers, and visit tracking. Added idempotent request handling for safe retries and a repeatable bash/curl smoke test script for local API validation.</p>
@@ -113,7 +124,7 @@ const commands = {
 
       <div class="project">
         <div class="project-title-row">
-          <strong>4. MoneyMate</strong>
+          <strong>5. MoneyMate</strong>
           <span class="badge python">Java</span>
         </div>
         <p>Personal finance tracker with auth, expense CRUD, and reporting. Persists data to a relational database.</p>

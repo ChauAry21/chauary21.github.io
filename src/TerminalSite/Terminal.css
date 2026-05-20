@@ -385,6 +385,12 @@
     text-transform: uppercase;
 }
 
+.badge.agent {
+  background: #2b003d;
+  color: #d580ff;
+  border: 1px solid #d580ff;
+}
+
 .badge.automation {
     background: #002a4a;
     color: #00cfff;
@@ -405,8 +411,8 @@
 
 .badge.research {
     background: #001a00;
-    color: #00ff00;
-    border: 1px solid #00ff00;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 .info-card {
